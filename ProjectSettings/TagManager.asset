@@ -8,11 +8,13 @@ TagManager:
   - Enemy
   - Bullet
   - Wall
+  - PowerUp_Vest
+  - Objective
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sprites
   - Water
   - UI
   - 
