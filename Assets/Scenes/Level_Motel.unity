@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 176219940}
   - component: {fileID: 176219941}
   - component: {fileID: 176219942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy_elite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 324061765}
   - component: {fileID: 324061766}
   - component: {fileID: 324061767}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy_grunt (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -632,7 +632,8 @@ GameObject:
   - component: {fileID: 380862876}
   - component: {fileID: 380862877}
   - component: {fileID: 380862878}
-  m_Layer: 0
+  - component: {fileID: 380862879}
+  m_Layer: 2
   m_Name: enemy_tank (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -751,6 +752,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.5367603, y: 7.4385333}
   m_EdgeRadius: 0
+--- !u!114 &380862879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380862875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f86b221d85920f4c8f9d8e9259083dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &464859759
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +910,7 @@ GameObject:
   - component: {fileID: 773904002}
   - component: {fileID: 773904003}
   - component: {fileID: 773904004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy_grunt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1043,7 +1057,7 @@ GameObject:
   - component: {fileID: 783640151}
   - component: {fileID: 783640153}
   - component: {fileID: 783640152}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy_tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1184,7 +1198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811701215}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4406,7 +4420,7 @@ GameObject:
   - component: {fileID: 1294820105}
   - component: {fileID: 1294820106}
   - component: {fileID: 1294820107}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy_grunt (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4656,7 +4670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1395115767}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5090,7 +5104,6 @@ GameObject:
   - component: {fileID: 1787077858}
   - component: {fileID: 1787077860}
   - component: {fileID: 1787077859}
-  - component: {fileID: 1787077861}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -12820,19 +12833,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1787077861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787077857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f86b221d85920f4c8f9d8e9259083dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1 &1982488754
 GameObject:
   m_ObjectHideFlags: 0
@@ -12842,7 +12842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1982488755}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12873,7 +12873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2075286252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

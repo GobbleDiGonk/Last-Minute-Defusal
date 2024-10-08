@@ -21,12 +21,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("PowerUp_Vest"))
         {
             currentHealth += 3;
         }
+
+        if(collision.CompareTag("EnemyBullet"))
+        {
+            currentHealth -= 1;
+        }
     }
 
+  
 }

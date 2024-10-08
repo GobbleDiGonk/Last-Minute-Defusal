@@ -29,24 +29,23 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
-
         //assigns the horizontal values to the variable called horizontal
         float moveX = Input.GetAxisRaw("Horizontal");
         //assigns the vertical values to the variable called vertical
         float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        if (isDashing)
+        {
+            return;
+        }
 
         if(Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
         }
+        moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
 

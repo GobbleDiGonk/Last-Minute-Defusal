@@ -20,6 +20,12 @@ public class EnemyController : MonoBehaviour
        if (hasLineOfSight)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+            Vector3 rotation = player.transform.position - transform.position;
+
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
     }
 
