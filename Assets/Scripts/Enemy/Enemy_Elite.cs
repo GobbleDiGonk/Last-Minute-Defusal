@@ -15,6 +15,7 @@ public class Enemy_Elite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //locates the player via tag
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -22,6 +23,7 @@ public class Enemy_Elite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //activates a timer for how fast they can shoot
         shootingTimer += Time.deltaTime;
         if(shootingTimer > 1.25 && hasLineOfSight)
         {
@@ -41,6 +43,7 @@ public class Enemy_Elite : MonoBehaviour
 
     void Shoot()
     {
+        //spawns the bullet on the shooting point
         Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
     }
 

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Enemy_Grunt : MonoBehaviour
 {
-    [SerializeField] float shootingTimer;
+    [SerializeField] float shootingTimer = 1.25f;
     private GameObject player;
     private bool hasLineOfSight = false;
-    private Rigidbody2D rb;
     private Vector3 playerPos;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
