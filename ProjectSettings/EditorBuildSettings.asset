@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 02361f32d52aa044384fc7a76375af41
+  - enabled: 1
+    path: Assets/Scenes/Level_Motel.unity
+    guid: 01a95db668082be45b0eab4776115e4a
+  - enabled: 1
+    path: Assets/Scenes/DeathMenu.unity
+    guid: 1b50fc998e4e7f04eac05b7ee6bd3675
+  - enabled: 1
+    path: Assets/Scenes/MissionResults.unity
+    guid: 0bb5e6666bf862c40934b3f591054d02
   m_configObjects: {}

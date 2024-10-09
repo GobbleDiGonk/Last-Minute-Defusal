@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Grunt : MonoBehaviour
+public class Enemy_Elite : MonoBehaviour
 {
-    [SerializeField] float shootingTimer = 1.25f;
+    [SerializeField] float shootingTimer;
     private GameObject player;
     private bool hasLineOfSight = false;
-    private Vector3 playerPos;
+    private Rigidbody2D rb;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
+        //locates the player via tag
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -21,8 +22,9 @@ public class Enemy_Grunt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //activates a timer for how fast they can shoot
         shootingTimer += Time.deltaTime;
-        if(shootingTimer > 1.25 && hasLineOfSight)
+        if(shootingTimer > 0.25 && hasLineOfSight)
         {
             shootingTimer = 0;
             Shoot();
@@ -40,6 +42,7 @@ public class Enemy_Grunt : MonoBehaviour
 
     void Shoot()
     {
+        //spawns the bullet on the shooting point
         Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
     }
 

@@ -15,15 +15,15 @@ public class UIManager : MonoBehaviour
     //counts how much ammo the player has in their weapon
     public void UpdateAmmoCounter(int ammoLeft)
     {
-        startUIText_Ammo.text = "Ammo: x" + ammoLeft.ToString();
+        startUIText_Ammo.text = "" + ammoLeft.ToString();
     }
 
     public void UpdateReserveCounter(int reserveAmmoLeft)
     {
-        startUIText_ReserveAmmo.text = "Reserve Ammo: x" + reserveAmmoLeft.ToString();
+        startUIText_ReserveAmmo.text = "" + reserveAmmoLeft.ToString();
     }
 
-    public void UpdateDashAmount(int dashAmount)
+    public void UpdateDashAmount(float dashAmount)
     {
         dashBar.fillAmount = dashAmount;
     }

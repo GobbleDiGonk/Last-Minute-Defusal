@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     float horizontal;
     float vertical;
-    [SerializeField] float dashSpeed = 40f;
-    [SerializeField] float dashDuration = 1f;
-    [SerializeField] float dashCooldown = 1f;
+    [SerializeField] float dashSpeed;
+    [SerializeField] float dashDuration;
+    [SerializeField] float dashCooldown;
+    private float dashAmount;
     bool isDashing;
     bool canDash;
 
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
+            uiManager.UpdateDashAmount(dashAmount);
         }
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
@@ -56,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
 
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
 
     //IEnumerator is used to process the dash mechanic
@@ -70,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         //Activates a timer for how long the player dashes
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
-
+        //starts timer for cooldown, allows the player to dash
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }

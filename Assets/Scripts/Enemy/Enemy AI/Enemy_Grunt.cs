@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Enemy_Grunt : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] float shootingTimer = 1.25f;
     private GameObject player;
     private bool hasLineOfSight = false;
+    public Transform shootingPoint;
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -14,13 +16,19 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+
     // Update is called once per frame
     void Update()
     {
-       if (hasLineOfSight)
+        shootingTimer += Time.deltaTime;
+        if(shootingTimer > 1.25 && hasLineOfSight)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
+            shootingTimer = 0;
+            Shoot();
+        }
+        //checks if the enemy has light of sight of the player
+        if (hasLineOfSight)
+        {
             Vector3 rotation = player.transform.position - transform.position;
 
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -29,16 +37,23 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+    }
+
     private void FixedUpdate()
     {
+        //Sends out raycasts out from the enemy to player
         RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
-        if(ray.collider != null)
+        if (ray.collider != null)
         {
             hasLineOfSight = ray.collider.CompareTag("Player");
-            if(hasLineOfSight)
+            if (hasLineOfSight)
             {
                 Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
-            }else
+            }
+            else
             {
                 Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
             }
