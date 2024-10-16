@@ -25,7 +25,6 @@ public class Bomb : MonoBehaviour
         {
             stopTimer = true;
             SceneManager.LoadScene("MissionResults");
-            SceneManager.UnloadScene("Level_Motel");
         }
 
         if(stopTimer == true)
@@ -45,7 +44,6 @@ public class Bomb : MonoBehaviour
             remainingTime = 0;
             bombTimer.color = Color.red;
             SceneManager.LoadScene("MissionFailedMenu");
-            SceneManager.UnloadScene("Level_Motel");
             
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);

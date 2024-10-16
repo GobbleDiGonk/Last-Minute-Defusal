@@ -11,6 +11,7 @@ TagManager:
   - PowerUp_Vest
   - Objective
   - EnemyBullet
+  - EnemyTank
   layers:
   - Default
   - TransparentFX

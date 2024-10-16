@@ -6,6 +6,7 @@ public class EnemyGrunt_Health : MonoBehaviour
 {
     public int currentHealth = 1;
     public int maxHealth = 1;
+    public GameObject deathSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,8 @@ public class EnemyGrunt_Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            //play death animation
+            Destroy(gameObject);
+            Instantiate(deathSprite, transform.position, Quaternion.identity);
         }
     }
 

@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //the movement speed of the player
-    public float speed;
-    float horizontal;
-    float vertical;
+    [SerializeField] float speed;
     [SerializeField] float dashSpeed;
     [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
