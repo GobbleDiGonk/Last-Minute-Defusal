@@ -9,6 +9,8 @@ public class Enemy_Grunt : MonoBehaviour
     private bool hasLineOfSight = false;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public GameObject gunFlashVFX;
+    public GameObject pistolShotSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,8 @@ public class Enemy_Grunt : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+        Instantiate(gunFlashVFX, shootingPoint.position, shootingPoint.rotation);
+        Instantiate(pistolShotSFX, shootingPoint.position, shootingPoint.rotation);
     }
 
     private void FixedUpdate()

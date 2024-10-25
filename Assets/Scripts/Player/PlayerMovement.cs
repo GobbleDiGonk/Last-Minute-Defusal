@@ -9,14 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dashSpeed;
     [SerializeField] float dashDuration;
     [SerializeField] float dashCooldown;
-    private float dashAmount;
     bool isDashing;
     bool canDash;
 
     Vector2 moveDirection;
     
-    Rigidbody2D rb;
-    public UIManager uiManager;
+    private Rigidbody2D rb;
 
     private void Start()
     {
@@ -34,17 +32,18 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         //assigns the vertical values to the variable called vertical
         float moveY = Input.GetAxisRaw("Vertical");
-
+        //returns the player back to the update state
         if (isDashing)
         {
             return;
         }
 
+        //checks if the player has inputted space
         if(Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
-            uiManager.UpdateDashAmount(dashAmount);
         }
+
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 

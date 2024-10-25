@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     private Rigidbody2D rb;
     public GameObject playerDeathSprite;
+    public GameObject vestPickUpSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     }
     void TakeDamage(int amount)
     {
+        //takes away health when the player is hit
         currentHealth -= amount;
 
         if (currentHealth <= 0)
@@ -33,13 +35,14 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth += 3;
             Destroy(collision.gameObject);
+            Instantiate(vestPickUpSFX, transform.position, Quaternion.identity);
         }
-
+        //player takes one hit point if hit by an enemy bullet
         if(collision.CompareTag("EnemyBullet"))
         {
             TakeDamage(1);
         }
-
+        //player instantly dies if hit by the tank enemy
         if(collision.CompareTag("EnemyTank"))
         {
             TakeDamage(3);

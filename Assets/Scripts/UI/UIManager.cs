@@ -22,10 +22,4 @@ public class UIManager : MonoBehaviour
     {
         startUIText_ReserveAmmo.text = "" + reserveAmmoLeft.ToString();
     }
-
-    public void UpdateDashAmount(float dashAmount)
-    {
-        dashBar.fillAmount = dashAmount;
-    }
-
 }

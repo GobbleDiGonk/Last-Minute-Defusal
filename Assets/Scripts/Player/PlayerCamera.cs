@@ -6,7 +6,8 @@ public class PlayerCamera : MonoBehaviour
 {
     //adjusts main camera to focus on the player
     private Vector3 offset = new Vector3(0f, 0f, -20f); 
-    private float smoothTime = 0.25f;
+    //smooths the transistion to the player's position
+    private float smoothTime = 0.15f;
     private Vector3 velocity = Vector3.zero;
 
     [SerializeField] private Transform target;

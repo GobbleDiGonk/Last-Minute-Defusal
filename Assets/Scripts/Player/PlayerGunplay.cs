@@ -8,6 +8,9 @@ public class PlayerGunplay : MonoBehaviour
     private Vector3 mousePos;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public GameObject gunFlashVFX;
+    public GameObject revolverShotSFX;
+    public GameObject ammoPickUpSFX;
     public int ammo;
     public UIManager uiManager;
     public bool canFire;
@@ -40,7 +43,8 @@ public class PlayerGunplay : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)&& canFire)
         {
             Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
-         
+            Instantiate(gunFlashVFX, shootingPoint.position, shootingPoint.rotation);
+            Instantiate(revolverShotSFX, shootingPoint.position, shootingPoint.rotation);
             ammo -= 1;
             uiManager.UpdateAmmoCounter(ammo);
             canFire = false;
@@ -91,6 +95,7 @@ public class PlayerGunplay : MonoBehaviour
             reserveAmmo += 12;
             uiManager.UpdateReserveCounter(reserveAmmo);
             Destroy(collision.gameObject);
+            Instantiate(ammoPickUpSFX, transform.position, Quaternion.identity);
         }
     }
 

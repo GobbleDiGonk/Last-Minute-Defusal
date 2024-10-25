@@ -10,6 +10,8 @@ public class Enemy_Elite : MonoBehaviour
     private Rigidbody2D rb;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public GameObject gunFlashVFX;
+    public GameObject rifleShotSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,8 @@ public class Enemy_Elite : MonoBehaviour
     {
         //spawns the bullet on the shooting point
         Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+        Instantiate(gunFlashVFX, shootingPoint.position, shootingPoint.rotation);
+        Instantiate(rifleShotSFX, shootingPoint.position, shootingPoint.rotation);
     }
 
     private void FixedUpdate()
